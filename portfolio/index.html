@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Raj — Full Stack Developer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="#home" class="nav-brand">
+    <span class="nav-avatar">AR</span>
+    <span class="nav-name">
+      ADITYA RAJ
+      <small class="nav-role">SOFTWARE ENGINEER </small>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="#home" class="nav-link" data-section="home">HOME</a>
+    <a href="#about" class="nav-link" data-section="about">ABOUT</a>
+    <a href="#skills" class="nav-link" data-section="skills">SKILLS</a>
+    <a href="#projects" class="nav-link" data-section="projects">PROJECTS</a>
+    <a href="#journey" class="nav-link" data-section="journey">JOURNEY</a>
+    <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
+  </nav>
+  <div class="nav-tools">
+    <div class="clock-box" id="liveClock">Loading...</div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle day and night mode">
+      <span class="theme-icon">☀️</span>
+      <span class="theme-text">DAY MODE</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="section hero">
+  <div class="grid-bg"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow"><span class="dash"></span> SOFTWARE ENGINEER / B.TECH CSE</div>
+      <h1 class="hero-title">
+        Hi, I'm<br>
+        <span class="gradient-text">Aditya Raj</span>
+      </h1>
+      <p class="hero-role">Full Stack Developer</p>
+      <p class="hero-desc">Building modern web applications, scalable backend systems and AI-powered digital experiences.</p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Explore My Work <span class="arrow">&#8599;</span></a>
+        <a href="#" class="btn btn-outline"><span class="icon-git">&#60;/&#62;</span> View GitHub</a>
+      </div>
+
+      <div class="hero-links">
+        <a href="https://github.com/adityaraj0543" target="_blank">GITHUB</a>
+        <a href="https://www.linkedin.com/in/adityaraj-se/" target="_blank">LINKEDIN</a>
+        <a href="mailto:aditya.raj0543@gmail.com" target="_blank">EMAIL</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="float-chip chip-build"><span>&#60;/&#62;</span> BUILD</div>
+      <div class="float-chip chip-create"><span>&#9670;</span> CREATE</div>
+      <div class="float-chip chip-ideate">01 <span>IDEATE</span></div>
+
+      <div class="code-panel">
+        <div class="code-panel-head">
+          <span>ADITYA_OS</span>
+          <span class="status"><i></i> ONLINE</span>
+        </div>
+        <div class="code-panel-body">
+          <div class="line no">01</div>
+          <div class="line"><span class="kw">const</span> <span class="var">developer</span> = {</div>
+          <div class="line indent">name: <span class="str">"Aditya Raj"</span>,</div>
+          <div class="line indent">role: <span class="str">"Full Stack Developer"</span>,</div>
+          <div class="line indent">focus: [<span class="str">"web"</span>, <span class="str">"AI"</span>]</div>
+          <div class="line">};</div>
+          <div class="cursor"></div>
+        </div>
+      </div>
+
+      <div class="pedestal">
+        <div class="beam"></div>
+        <div class="beam-base"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div class="scroll-hint">&#8964; SCROLL TO EXPLORE</div>
+    <div class="status-badge"><i></i> DEVELOPMENT / 2025</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section about">
+  <div class="section-label">01 / THE BUILDER</div>
+  <div class="about-grid">
+    <h2 class="about-title">Turning ideas into<br>scalable <span class="gradient-text">software.</span></h2>
+    <div class="about-copy">
+      <p class="lead">A B.Tech CSE student developing across frontend engineering, backend systems, databases, APIs and AI-powered applications.</p>
+      <p class="muted">Curious by default. Intentional in execution. Every project is a chance to make something clearer, faster and more useful.</p>
+      <div class="trait-grid">
+        <div class="trait"><span class="num">01</span> Problem Solver</div>
+        <div class="trait"><span class="num">02</span> Full Stack Developer</div>
+        <div class="trait"><span class="num">03</span> Continuous Learner</div>
+        <div class="trait"><span class="num">04</span> Builder</div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span>IDEA</span><span class="ticker-arrow">&#8594;</span>
+    <span>CODE</span><span class="ticker-arrow">&#8594;</span>
+    <span>DATABASE</span><span class="ticker-arrow">&#8594;</span>
+    <span class="highlight">PRODUCT</span>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section skills">
+  <div class="skills-head">
+    <h2 class="skills-title">The tools behind<br>the <span class="gradient-text">work.</span></h2>
+    <p class="skills-sub">Organized by how products are actually built — from interface to infrastructure.</p>
+  </div>
+
+  <div class="orbit-wrap">
+    <div class="orbit-ring ring1"></div>
+    <div class="orbit-ring ring2"></div>
+    <div class="orbit-core">
+      <span class="core-label">FULL STACK</span>
+      <span class="core-title">ENGINEERING</span>
+      <span class="core-range">01 — 15</span>
+    </div>
+    <div class="orbit-items" id="orbitItems"></div>
+  </div>
+
+  <div class="skills-categories">
+    <div class="cat">
+      <h4>FRONTEND</h4>
+      <p>React &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS</p>
+    </div>
+    <div class="cat">
+      <h4>BACKEND</h4>
+      <p>Java &middot; Spring Boot &middot; Node.js</p>
+    </div>
+    <div class="cat">
+      <h4>DATABASE</h4>
+      <p>MongoDB &middot; PostgreSQL &middot; SQL</p>
+    </div>
+    <div class="cat">
+      <h4>TOOLS</h4>
+      <p>Git &middot; GitHub &middot; Vercel &middot; Render</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section projects">
+  <div class="projects-head">
+    <div class="section-label dark">03 / SELECTED WORK</div>
+    <h2 class="projects-title">Things I've<br><span class="gradient-text-dark">built.</span></h2>
+    <p class="projects-sub">Three explorations in product thinking, systems and useful software.</p>
+  </div>
+
+  <div class="project-cards">
+    <article class="project-card">
+      <div class="project-visual visual-navy">
+        <span class="tag">01</span>
+        <div class="flow">
+          <div>RESUME</div>
+          <div class="down">&#8595;</div>
+          <div class="box">AI ENGINE</div>
+          <div class="down">&#8595;</div>
+          <div>ATS SCORE</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tag">AI / PRODUCT</div>
+        <h3>AI Resume Analyzer</h3>
+        <p>A focused workspace for turning a resume into clearer, more actionable career signals.</p>
+        <div class="pill-row">
+          <span class="pill">React</span><span class="pill">AI</span><span class="pill">APIs</span>
+        </div>
+        <a href="#" class="view-link">View project details &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-visual visual-purple">
+        <span class="tag">02</span>
+        <div class="orb"></div>
+        <span class="corner">EXPLORE / 28&deg;N</span>
+      </div>
+      <div class="project-info">
+        <div class="project-tag">FULL STACK / TRAVEL</div>
+        <h3>TripGenius</h3>
+        <p>A planning experience that turns a destination idea into a structured, usable itinerary.</p>
+        <div class="pill-row">
+          <span class="pill">React</span><span class="pill">Node.js</span><span class="pill">MongoDB</span>
+        </div>
+        <a href="#" class="view-link">View project details &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-visual visual-teal">
+        <span class="tag">03</span>
+        <div class="flow horizontal">
+          <div>LONG URL</div>
+          <div class="arrow">&#8594;</div>
+          <div class="box">API</div>
+          <div class="arrow">&#8594;</div>
+          <div>SHORT URL</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tag">BACKEND / SYSTEMS</div>
+        <h3>URL Shortener</h3>
+        <p>A compact API product built around the fundamentals of links, routing and useful analytics.</p>
+        <div class="pill-row">
+          <span class="pill">REST API</span><span class="pill">Database</span><span class="pill">Analytics</span>
+        </div>
+        <a href="#" class="view-link">View project details &#8599;</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SYSTEMS THINKING -->
+<section id="systems" class="section systems">
+  <div class="section-label">04 / SYSTEMS THINKING</div>
+  <div class="systems-grid">
+    <h2 class="systems-title">See how the<br>pieces <span class="gradient-text">connect.</span></h2>
+    <p class="systems-copy">Good software is more than a polished interface. It is the thoughtful path between a user, an API, a system and the data underneath.</p>
+  </div>
+
+  <div class="pipeline">
+    <div class="pipe-step">
+      <div class="pipe-icon">&#60;/&#62;</div>
+      <span class="pipe-num">01</span>
+      <h4>FRONTEND</h4>
+      <p>React &middot; TypeScript</p>
+    </div>
+    <div class="pipe-arrow">&#8595;</div>
+    <div class="pipe-step">
+      <div class="pipe-icon">&#8942;&#8942;</div>
+      <span class="pipe-num">02</span>
+      <h4>REST API</h4>
+      <p>Routes &middot; Contracts</p>
+    </div>
+    <div class="pipe-arrow">&#8595;</div>
+    <div class="pipe-step">
+      <div class="pipe-icon">&#9638;&#9638;</div>
+      <span class="pipe-num">03</span>
+      <h4>BACKEND</h4>
+      <p>Node.js &middot; Spring Boot</p>
+    </div>
+    <div class="pipe-arrow">&#8595;</div>
+    <div class="pipe-step">
+      <div class="pipe-icon">&#8987;</div>
+      <span class="pipe-num">04</span>
+      <h4>DATABASE</h4>
+      <p>MongoDB &middot; PostgreSQL</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="section journey">
+  <div class="section-label">05 / THE JOURNEY</div>
+  <div class="journey-grid">
+    <div class="journey-left">
+      <h2 class="journey-title">Always<br>learning<br><span class="gradient-text">forward.</span></h2>
+      <p class="journey-copy">A timeline of the skills and curiosity shaping the engineer behind the projects.</p>
+    </div>
+    <div class="journey-list">
+      <div class="j-item"><span class="j-num">01</span><span class="j-text">B.Tech CSE</span></div>
+      <div class="j-item"><span class="j-num">02</span><span class="j-text">Programming Fundamentals</span></div>
+      <div class="j-item"><span class="j-num">03</span><span class="j-text">DSA</span></div>
+      <div class="j-item"><span class="j-num">04</span><span class="j-text">Frontend Development</span></div>
+      <div class="j-item"><span class="j-num">05</span><span class="j-text">Backend Development</span></div>
+      <div class="j-item"><span class="j-num">06</span><span class="j-text">Full Stack Projects</span></div>
+      <div class="j-item"><span class="j-num">07</span><span class="j-text">AI-Powered Applications</span><span class="j-now">NOW</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta">
+  <div class="section-label">06 / THE FULL PICTURE</div>
+  <div class="cta-grid">
+    <h2 class="cta-title">Want the full<br>pict<span class="gradient-text">ure?</span></h2>
+    <div class="cta-actions">
+      <a href="#" class="btn btn-primary">View Resume <span class="arrow">&#8599;</span></a>
+      <a href="#" class="btn btn-outline"><span>&#8681;</span> Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <div class="section-label center">07 / OPEN CHANNEL</div>
+  <h2 class="contact-title">Let's build<br><span class="gradient-text">something.</span></h2>
+  <p class="contact-sub">Have an idea, opportunity or project? Let's talk.</p>
+  <div class="contact-links">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aditya.raj0543@gmail.com" target="_blank"> <span class="icon">&#9993;</span> aditya.raj0543@gmail.com &#8599; </a>
+    <a href="https://github.com/adityaraj0543" target="_blank"><span class="icon">&#9670;</span> GitHub &#8599;</a>
+    <a href="https://www.linkedin.com/in/adityaraj-se/" target="_blank"><span class="icon">&#9642;</span> LinkedIn &#8599;</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>&copy; 2025 ADITYA RAJ</span>
+  <span>AR / FULL STACK</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

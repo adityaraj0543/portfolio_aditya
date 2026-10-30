@@ -26,6 +26,35 @@ if (themeToggle) {
   });
 }
 
+// ===== Mobile navigation =====
+const menuToggle = document.getElementById('menuToggle');
+const primaryNavigation = document.getElementById('primaryNavigation');
+if (menuToggle && primaryNavigation) {
+  const closeMenu = () => {
+    primaryNavigation.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation menu');
+  };
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') !== 'true';
+    primaryNavigation.classList.toggle('is-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  });
+
+  primaryNavigation.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+}
+
+document.querySelectorAll('.current-year').forEach(element => {
+  element.textContent = new Date().getFullYear();
+});
+
 // ===== Live clock =====
 const liveClock = document.getElementById('liveClock');
 function updateClock() {
@@ -44,6 +73,7 @@ function updateClock() {
     hour12: true
   });
   liveClock.textContent = `${dateText} • ${timeText}`;
+  liveClock.dateTime = now.toISOString();
 }
 updateClock();
 setInterval(updateClock, 1000);
@@ -82,19 +112,24 @@ const orbitData = [
   { name: 'GitHub', r: 1, angle: 340 },
   { name: 'Vercel', r: 1, angle: 155 },
   { name: 'Render', r: 1, angle: 75 },
+  { name: 'agentic AI', r: 0.62, angle: 110 },
+  { name: 'Next.js', r: 0.62, angle: 80 },
+  {name: 'rag', r: 0.62, angle: 50 },
 ];
 
 const orbitWrap = document.getElementById('orbitItems');
 if (orbitWrap) {
-  const outerR = 320;
+  const outerR = Math.min(320, orbitWrap.parentElement.clientWidth * 0.42);
+  const wrapWidth = orbitWrap.parentElement.clientWidth;
+  const wrapHeight = orbitWrap.parentElement.clientHeight;
   orbitData.forEach((item, i) => {
     const el = document.createElement('div');
     el.className = 'orbit-chip';
     el.textContent = item.name;
     const rad = (item.angle * Math.PI) / 180;
     const radius = outerR * item.r;
-    const x = 50 + (Math.cos(rad) * radius) / 6.4;
-    const y = 50 + (Math.sin(rad) * radius) / 6.4;
+    const x = 50 + (Math.cos(rad) * radius / wrapWidth) * 100;
+    const y = 50 + (Math.sin(rad) * radius / wrapHeight) * 100;
     el.style.left = x + '%';
     el.style.top = y + '%';
     el.style.animation = `chipFloat ${5 + (i % 4)}s ease-in-out infinite`;
@@ -135,3 +170,99 @@ if (hero && heroRight && codePanel) {
 const styleTag = document.createElement('style');
 styleTag.textContent = `@keyframes chipFloat{0%,100%{transform:translate(-50%,-50%) translateY(0) rotateX(0deg) rotateY(0deg);}50%{transform:translate(-50%,-50%) translateY(-8px) rotateX(7deg) rotateY(-10deg);}}`;
 document.head.appendChild(styleTag);
+
+// ===== EmailJS contact form =====
+// Use your EmailJS IDs/public key; the template should use from_name, from_email, reply_to, subject, and message.
+
+// ===== EmailJS contact form =====
+
+const emailJsConfig = {
+  serviceId: 'service_mbvyrko',
+  templateId: 'template_rqwhbdg',
+  publicKey: 'b6971faf-2b04-433d-b95b-c10564fe5173'
+};
+
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  const status = document.getElementById('contactFormStatus');
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const submitLabel = contactForm.querySelector('.contact-submit-label');
+
+  if (window.emailjs) {
+    window.emailjs.init({
+      publicKey: emailJsConfig.publicKey
+    });
+  }
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // Form validation
+    const textFields = contactForm.querySelectorAll(
+      'input[type="text"], textarea'
+    );
+
+    textFields.forEach(field => {
+      const value = field.value.trim();
+
+      const isTooShortMessage =
+        field.matches('textarea') && value.length < 10;
+
+      field.setCustomValidity(
+        !value
+          ? 'Please enter a value that is not just spaces.'
+          : isTooShortMessage
+            ? 'Please enter a message with at least 10 non-space characters.'
+            : ''
+      );
+    });
+
+    if (!contactForm.reportValidity()) return;
+
+    // Check EmailJS
+    if (
+      !window.emailjs ||
+      !emailJsConfig.serviceId ||
+      !emailJsConfig.templateId ||
+      !emailJsConfig.publicKey
+    ) {
+      status.textContent = 'Email service is unavailable. Please try again.';
+      status.dataset.state = 'error';
+      return;
+    }
+
+    // Loading state
+    submitButton.disabled = true;
+    submitLabel.textContent = 'Sending...';
+    status.textContent = 'Sending your message...';
+    status.dataset.state = 'info';
+
+    try {
+      await window.emailjs.sendForm(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        contactForm
+      );
+
+      contactForm.reset();
+
+      status.textContent =
+        'Thanks for reaching out! Your message was sent successfully.';
+
+      status.dataset.state = 'success';
+
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+
+      status.textContent =
+        'Your message could not be sent. Please try again.';
+
+      status.dataset.state = 'error';
+
+    } finally {
+      submitButton.disabled = false;
+      submitLabel.textContent = 'Send message';
+    }
+  });
+}
